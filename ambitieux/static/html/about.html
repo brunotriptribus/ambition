@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ambition Québec Open!</title>
+<link rel="icon" href="/static/Flag_of_Quebec.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/static/Flag_of_Quebec.ico" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #778;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #111;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(0%); /* make all photos black and white */ 
+      width: 60%; /* Set width to 100% */
+      margin: auto;
+  }
+  .container img {
+     max-width:  100%;
+     height:  auto;
+}
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  .specialImage {
+  min-height: 100%;
+  min-width: 100%;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* modern browsers */
+  opacity: 1.0;
+} 
+
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Mouvement Citoyen</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">ACCUEIL</a></li>
+        <li><a href="#band">LE MOUVEMENT</a></li>
+        <li><a href="#tour">EN RÉGIONS</a></li>
+        <li><a href="#extrait">LE BLOG DES AMBITIEUX</a></li>
+        <li><a href="tribu.html">CONTACT</a> 
+      </ul>
+    </div>
+</nav>
+
+<div id="band" class="container-fluid">
+  <h3 class="text-center">Le Mouvement Ambition Québec Open</h3>
+  <p class="text-center"><em><b>Voir grand pour nos enfants!</b></em></p><br><br>
+  <p>Depuis quelques années déjà il existe en informatique un mouvement que l’on appelle ‘Open Source’, ‘logiciels libres’ ou ‘code source ouvert’.<br>
+De quoi s’agit-il ?
+Historiquement lorsqu’une compagnie bâti un programme informatique, avant de le rendre accessible au public moyennant un coût, celle-ci ‘encrypte’ le code informatique sous-jacent afin que nul ne puisse le visualiser, le copier, l’utiliser.
+<br>C’est ce qu’on appelle du code propriétaire. Seule la compagnie en possède la clé.<br><br>
+
+Le modèle Open Source est l’opposé. Un individu ou une organisation bâti un programme informatique mais rend son code source accessible à tous, modifiable par tous, utilisable par tous, généralement gratuitement, ‘forkable’<br> (c’est-à-dire se servir du code source original et en faire une nouvelle branche distincte) à volonté.<br><br> Le modèle d’affaire de ces individus ou organisation (car tous doivent gagner leur vie, on y échappe pas) consiste principalement à supporter (faire la maintenance ou de nouveaux développements) leur code pour les plus grosses compagnies<br> (par opposition aux individus ou petites entreprises) utilisant le programme.<br> Donc en résumé, accessible à la ‘masse’ gratuitement, facturable pour service et support pour les grandes entreprises.<br><br>
+
+Voilà qui explique le Open dans Ambition Québec Open. Ambition Québec Ouvert aurait pu porter à confusion avec le concept d’ouverture d’esprit dont les Québécois font déjà preuve. Ambition Québec Libre aurait pu porter à confusion avec une autre cause….quoique…<br>Nous y reviendrons.
+Maintenant qu’en est-il de l’ambition ? Qu’elle est cette ambition ?<br><br>
+
+Prôner le logiciel libre pour l’ensemble de nos institutions publiques et à une majorité des petites et moyennes entreprises du Québec.<br>
+Poser le logiciel libre comme base, comme fondation du Québec de demain. Voilà le début du commencement de l’ambition.<br><br>
+Mais l’ambition, le mouvement est encore plus ambitieux, voit encore plus grand. Et de celui-ci découlera nécessairement une action politique d’envergure dans un avenir rapproché car le temps presse.
+<br>
+Nous pouvons cependant dès à présent dévoiler que ce mouvement, cette action politique à venir s’articulera autour de trois axes principaux.<br><br> Notre ‘motto’.<br><br>
+Gestion, Prévention, Ambition.
+<br><br>
+Bienvenue à la porte d’entrée du Québec de demain.
+Pour nos enfants. Pour les enfants de nos enfants. </p>
+  <br>
+</div>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+       <h3 class="text-center">Épicentre du Mouvement</h3>
+     <p></p>
+    </div>
+  </div>
+
+<div id="googleMap"></div>
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(45.2333, -73.0167);
+
+function initialize() {
+var mapProp = {
+center:myCenter,
+zoom:12,
+scrollwheel:false,
+draggable:false,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+position:myCenter,
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div id="contact" class="container-fluid">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>Exprimez-vous! Nous voulons vous entendre! Écrivez-nous!</em></p><br>
+   <p class="text-center"><span class="glyphicon glyphicon-envelope"></span>  <a class="text-center" href="mailto:contact@ambitionquebecopen.com">contact@ambitionquebecopen.com</a></p>
+<br>
+<br>
+<p class="img-responsive" style="text-align:center;"><img src="/static/Flag_of_Quebec.jpg"/></p>
+</div>
+
+
+<!-- Footer -->
+<div>
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Site opéré par <a href="http://www.triptribus.com" target="_blank" data-toggle="tooltip" title="Visitez triptribus">www.triptribus.com</a><br><br><br><a  style="text-align:center;" href="http://www.aircam.ca" target="_blank" data-toggle="tooltip" title="Merci à aircam.ca pour les magnifiques photos"><img style="width: 100px; height: 50px;" src="/static/logo-big-big.jpg"/></a></p> 
+</footer>
+</div>
+
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+})
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//monitoring.triptribus.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 5]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//monitoring.triptribus.com/piwik/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+</body>
+</html>
+
+

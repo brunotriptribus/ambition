@@ -1,0 +1,1 @@
+/home/ambitieux/.bash_logout

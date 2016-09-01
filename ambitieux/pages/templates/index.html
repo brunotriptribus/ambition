@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ambition Québec Open!</title>
+<link rel="icon" href="/static/aqo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/static/aqo.ico" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #778;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #111;
+  }
+  .container {
+      padding: 80px 60px;
+  }
+
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(0%); /* make all photos black and white */ 
+      width: 90%; /* Set width to 100% */
+      margin: auto;
+  }
+  .container img {
+     max-width:  100%;
+     height:  auto;
+}
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #000;
+  }
+  footer {
+      color: #000;
+     padding: 32px;
+  }
+  footer a {
+      color: #f4511e;
+  }
+  footer a:hover {
+      color: #f4511e;
+      text-decoration: none;
+  }
+
+
+
+ .specialImage {
+  min-height: 100%;
+  min-width: 100%;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* modern browsers */
+  opacity: 1.0;
+} 
+
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img class="img-responsive" src="/static/rsz_1rsz_1aqo.jpg" /></a>
+     <a class="navbar-brand" href="#myPage">Mouvement Citoyen</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">ACCUEIL</a></li>
+        <li><a href="#band">LE MOUVEMENT</a></li>
+        <li><a href="#tour">EN RÉGIONS</a></li>
+        <li><a href="#extrait">LE BLOG DES AMBITIEUX</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/static/Snowy_owl-Harfang_des_neiges-Bubo_s_54443.jpg" title="© 2010, Richard Dumoulin, Le monde en images, CCDMD." alt="harfang">
+        <div class="carousel-caption">
+          <h3>Open!</h3>   
+       <p>Pour un Québec Open!</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="/static/photo_concour_5_91189.jpg" title="© 2013, Pascale Bouchard, Le monde en images, CCDMD." alt="regard" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>Ouvert!</h3>
+          <p>Pour un Québec Ouvert!</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="/static/drapeau.jpg" title="© 2010, Réal Filion, Le monde en images, CCDMD."alt="drapeau" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>Libre!</h3>
+          <p>Pour un Québec Libre!</p>
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- Container (The Band Section) -->
+<div id="band" class="container">
+  <h3 class="text-center">Le Mouvement Ambition Québec Open</h3>
+  <p class="text-center"><em><b>Voir grand pour nos enfants!</b></em></p><br><br>
+   <p class="img-responsive" style="text-align:center;"><img src="/static/aqo.jpg"/></p>
+  <p>Depuis quelques années déjà il existe en informatique un mouvement que l’on appelle ‘Open Source’, ‘logiciels libres’ ou ‘code source ouvert’. De quoi s’agit-il ? Historiquement lorsqu’une compagnie bâti un programme informatique, avant de le rendre accessible au public moyennant un coût, celle-ci ‘encrypte’ le code informatique sous-jacent afin que nul ne puisse le visualiser, le copier, l’utiliser. C’est ce qu’on appelle du code propriétaire. Seule la compagnie en possède la clé.<br><br>
+
+Le modèle Open Source est l’opposé. Un individu ou une organisation bâti un programme informatique mais rend son code source accessible à tous, modifiable par tous, utilisable par tous, généralement gratuitement, ‘forkable’ (c’est-à-dire se servir du code source original et en faire une nouvelle branche distincte) à volonté.<br><br> 
+
+Le modèle d’affaire de ces individus ou organisation (car tous doivent gagner leur vie, on y échappe pas) consiste principalement à supporter (faire la maintenance ou de nouveaux développements) leur code pour les plus grosses compagnies (par opposition aux individus ou petites entreprises) utilisant le programme. Donc en résumé, accessible à la ‘masse’ gratuitement, facturable pour service et support pour les grandes entreprises.<br><br>
+
+Voilà qui explique le Open dans Ambition Québec Open. Ambition Québec Ouvert aurait pu porter à confusion avec le concept d’ouverture d’esprit dont les Québécois font déjà preuve. Ambition Québec Libre aurait pu porter à confusion avec une autre cause….quoique…Nous y reviendrons. Maintenant qu’en est-il de l’ambition ? Qu’elle est cette ambition ?<br><br>
+
+Prôner le logiciel libre pour l'ensemble de nos institutions publiques et à une majorité des petites et moyennes entreprises du Québec.
+Poser le logiciel libre comme base, comme fondation du Québec de demain. Voilà le début du commencement de l’ambition.<br><br>
+
+Mais l’ambition, le mouvement est encore plus ambitieux, voit encore plus grand. Et de celui-ci découlera nécessairement une action politique d’envergure dans un avenir rapproché car le temps presse.
+Nous pouvons cependant dès à présent dévoiler que ce mouvement, cette action politique à venir s’articulera autour de trois axes principaux.<br><br> Notre ‘motto’.<br><br>
+Gestion, Prévention, Ambition.
+<br><br>
+Bienvenue à la porte d’entrée du Québec de demain.
+Pour nos enfants. Pour les enfants de nos enfants. </p>
+  <br>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Gestion</strong></p><br>
+      <a href="#gestion" data-toggle="collapse">
+        <img src="/static/noun_171772_cc.jpg" class="img-circle person" title="by Gerald Wildmoser from the nounproject" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="gestion" class="collapse">
+        <p>Outiller le Québec, nos institutions publiques et les petites et moyennes entreprises de systèmes de gestions plus performants, plus transparents, et à moindre coût.<br><br>
+Objectif ?<br> Réduire les dépenses, favoriser la croissance, mieux contrôler la circulation de notre argent.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Prévention</strong></p><br>
+      <a href="#prevention" data-toggle="collapse">
+        <img src="/static/prevention2.jpg" class="img-circle person" title="by Yazmin Alanis from the nounproject" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="prevention" class="collapse">
+        <p>Mieux vaut prévenir que guérir.<br><br>
+Il en coûterais moins cher, malgré des investissements majeurs nécessaires, de bien éduquer nos enfants dès la petite enfance plutôt que de régler les maux résultants d’une mauvaise éducation.<br><br>
+Il en coûterais moins cher, malgré des investissements majeurs nécessaires, de bien entraîner physiquement nos enfants dès la petite enfance plutôt que de régler les maux résultants d’une mauvaise santé.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Ambition</strong></p><br>
+      <a href="#ambition" data-toggle="collapse">
+        <img src="/static/ambition2.jpg" class="img-circle person" title="by Juan Pablo Bravo from the nounproject" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="ambition" class="collapse">
+        <p>Ambition d’un Québec mieux géré.<br> Ambition d’un Québec mieux éduqué.<br> Ambition d’un Québec plus en santé.<br> Ambition d’un Québec jeune et entreprenant.<br> Ambition d’un Québec vert.<br> Ambition d’un Québec libre….<br> Nous y reviendrons.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Container (TOUR Section) -->
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h3 class="text-center">Des régions en mouvement!</h3>
+    <p class="text-center">De la Gaspésie à l'Abitibi!<br> Des initiatives inspirantes!</p>
+    <div class="row text-center">
+    
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/estrie-sherbrooke.jpg" title="Photo gracieuseté de aircam.ca" alt="Estrie" width="400" height="300">
+          <p><strong>Estrie</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/monteregie.jpg" title="© 2010, Amelie Frederick, Le monde en images, CCDMD." alt="monteregie" width="400" height="300">
+          <p><strong>Montérégie</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/montreal-downton.jpg" title="Photo gracieuseté de aircam.ca" alt="montreal" width="400" height="300">
+          <p><strong>Montréal</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/bas-st-laurent-matane.jpg" title="Photo gracieuseté de aircam.ca" alt="bas-st-laurent" width="400" height="300">
+          <p><strong>Bas-Saint-Laurent</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/saguenay-fjord.jpg" title="Photo gracieuseté de aircam.ca"alt="Saguenay" width="400" height="300">
+          <p><strong>Saguenay-Lac-Saint-Jean</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/quebec-downtown.jpg" title="Photo gracieuseté de aircam.ca" alt="quebec" width="400" height="300">
+          <p><strong>Capitale-Nationale</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/mauricie-shawinigan.jpg" title="Photo gracieuseté de aircam.ca" alt="mauricie" width="400" height="300">
+          <p><strong>Mauricie</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/outaouais.jpg" title="Photo gracieuseté de aircam.ca" alt="outaouais" width="400" height="300">
+          <p><strong>Outaouais</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/cote-nord.jpg" title="© Hugo Lemieux-Fournier, Le monde en images, CCDMD." alt="cote-nord" width="400" height="300">
+          <p><strong>Côte-Nord</strong></p>
+        </div>
+      </div>
+   </div>
+   </div>
+
+  <div class="container">
+    <div class="row text-center">
+
+
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/nord-du-quebec.jpg" title="© 1988, Diane Saint-Laurent, Le monde en images, CCDMD." alt="nord-du-quebec" width="400" height="300">
+          <p><strong>Nord-du-Québec</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/gaspesie.jpg" title="© 2008, Philippe Legault, Le monde en images, CCDMD." alt="gaspesie" width="400" height="300">
+          <p><strong>Gaspésie-Iles-de-la-Madeleine</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/laval.jpg" title="Photo gracieuseté de aircam.ca" alt="laval" width="400" height="300">
+          <p><strong>Laval</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/lanaudiere.jpg" title="© 2012, Denis Chabot, Le monde en images, CCDMD." alt="lanaudiere" width="400" height="300">
+          <p><strong>Lanaudière</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/laurentides-joliette.jpg" title="Photo gracieuseté de aircam.ca" alt="laurentides" width="400" height="300">
+          <p><strong>Laurentides</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/centre-du-quebec-drummondville.jpg" title="Photo gracieuseté de aircam.ca" alt="centre" width="400" height="300">
+          <p><strong>Centre-du-Québec</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/abitibi.jpg" title="© 2000, Ariane Ouellet, Le monde en images, CCDMD." alt="abitibi" width="400" height="300">
+          <p><strong>Abitibi-Témiscamingue</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="/static/chaudiere.jpg" title="© 2004, Nicolas Miousse, Le monde en images, CCDMD." alt="chaudiere" width="400" height="300">
+          <p><strong>Chaudières-Appalaches</strong></p>
+        </div>
+      </div>
+     <div class="col-sm-4">
+        <div class="thumbnail" style="background-color: #2d2d30;"><br><br><br><br>
+         <a  style="text-align:center;" href="http://www.aircam.ca" target="_blank" data-toggle="tooltip" title="Merci à aircam.ca pour les magnifiques photos"><img style="width: 100px; height: 75px;" src="/static/logo-big-big.jpg"/></a> 
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  
+<!-- Container (Contact Section) -->
+<div id="extrait" class="container">
+  <h3 class="text-center">Tirés du Blog des Ambitieux</h3>
+  <ul class="nav nav-tabs">
+    <li class="active"><a class="text-center" data-toggle="tab" href="#home">Bruno</a></li>
+    <li><a class="text-center" data-toggle="tab" href="#menu1">DanP</a></li>
+    <li><a class="text-center" data-toggle="tab" href="#menu2">Claudine</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2 class="text-center">Bruno</h2>
+      <p>Mouvement citoyen au cœur duquel l’éducation, la formation, la promotion de la culture entrepreneuriale, la confiance, les échanges, la communication, le partage, l’ouverture, la collaboration, occupent une place centrale, déterminante. Riche.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2 class="text-center">DanP, citoyen</h2>
+      <p>Mouvement citoyen au cœur duquel l’éducation, la formation, la promotion de la culture entrepreneuriale, la confiance, les échanges, la communication, le partage, l’ouverture, la collaboration, occupent une place centrale, déterminante. Riche.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2 class="text-center">Claudine, citoyenne</h2>
+      <p>Mouvement citoyen au cœur duquel l’éducation, la formation, la promotion de la culture entrepreneuriale, la confiance, les échanges, la communication, le partage, l’ouverture, la collaboration, occupent une place centrale, déterminante. Riche.</p>
+    </div>
+</div>
+</div>
+
+
+  <div class="bg-1">
+  <div class="container">
+    <h3 class="text-center">Des citoyens et des citoyennes allumés!</h3>
+    <h3 class="text-center">Visitez le Blog des Ambitieux</h3>
+    <p class="text-center"><a href="http://blog.ambitionquebecopen.com" target="_blank" data-toggle="tooltip" title="Visitez le blog des ambitieux!">blog.ambitionquebecopen.com</a></p>
+  </div>
+  </div> 
+<br>
+<br>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+       <h3 class="text-center">Épicentre du Mouvement</h3>
+     <p></p>
+    </div>
+  </div>
+
+<div id="googleMap"></div>
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(45.2333, -73.0167);
+
+function initialize() {
+var mapProp = {
+center:myCenter,
+zoom:12,
+scrollwheel:false,
+draggable:false,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+position:myCenter,
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div id="contact" class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>Exprimez-vous! Nous voulons vous entendre! Écrivez-nous!</em></p><br>
+   <p class="text-center"><span class="glyphicon glyphicon-envelope"></span>  <a class="text-center" href="mailto:contact@ambitionquebecopen.com">contact@ambitionquebecopen.com</a></p>
+<br>
+<br>
+<p class="img-responsive" style="text-align:center;"><img src="/static/Flag_of_Quebec.jpg"/></p>
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Une création</p><p><a href="http://www.logilibre.net" target="_blank" data-toggle="tooltip"><img  src="/static/logilibre.jpg"/></a></p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+})
+</script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//monitoring.triptribus.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 5]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//monitoring.triptribus.com/piwik/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+<script language=JavaScript>
+<!--
+var message="";
+
+///////////////////////////////////
+function clickIE4(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("alert(message);return false")
+
+// --> 
+</script>
+
+</body>
+</html>
+
+
